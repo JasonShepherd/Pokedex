@@ -17,7 +17,7 @@ class PokemonDetailVC: UIViewController {
     @IBOutlet weak var decriptionLbl: UILabel!
     @IBOutlet weak var typeLbl: UILabel!
     @IBOutlet weak var defenseLbl: UILabel!
-    @IBOutlet weak var heightLbl: UIStackView!
+    @IBOutlet weak var heightLbl: UILabel!
     @IBOutlet weak var baseAttackLbl: UILabel!
     @IBOutlet weak var weightLbl: UILabel!
     @IBOutlet weak var pokedexIDLbl: UILabel!
@@ -31,6 +31,11 @@ class PokemonDetailVC: UIViewController {
         super.viewDidLoad()
 
         nameLabel.text = pokemon.name
+        
+        pokemon.downloadPokemonDetails {
+            //add implementation here"called after network call is complete
+            self.updateUI()
+        }
       
     }
 
@@ -38,6 +43,13 @@ class PokemonDetailVC: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    
+    func updateUI(){
+        baseAttackLbl.text = pokemon.attack
+        defenseLbl.text = pokemon.defense
+        heightLbl.text = pokemon.height
+        weightLbl.text = pokemon.weight
+    }
     
 
    }

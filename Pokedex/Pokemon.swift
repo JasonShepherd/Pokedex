@@ -7,30 +7,124 @@
 //
 
 import Foundation
+import Alamofire
 
 
 
 class Pokemon{
     
-    fileprivate var _name: String
-    fileprivate var _pokedexId: Int
+    private var _name: String!
+    private var _pokedexId: Int!
+    private var _description: String!
+    private var _type: String!
+    private var _height: String!
+    private var _weight: String!
+    private var _attack:String!
+    private var _defense:String!
+    private var _evolutionLbl:String!
+    private var _pokemanURL:String!
     
     
+    
+    
+    
+   
     var  name: String{
         return _name
     }
     
+    var type: String {
+        if _type == nil{
+            _type = ""
+        }
+        return _type
+    }
+    
+    var description: String {
+        if _description == nil{
+            _description = ""
+        }
+        return _description
+    }
     
     var pokedexId: Int {
         return _pokedexId
     }
+    
+    var evolutionLbl: String {
+        if _evolutionLbl == nil{
+            _evolutionLbl = ""
+        }
+            return _evolutionLbl
+        }
+    
+    var defense: String {
+        if _defense == nil{
+            _defense = ""
+        }
+        return _defense
+    }
+    
+    var attack: String {
+        if _attack == nil{
+            _attack = ""
+        }
+        return _attack
+    }
+    
+    var weight: String {
+        if _weight == nil{
+            _weight = ""
+        }
+        return _weight
+    }
+    
+    var height: String {
+        if _height == nil{
+            _height = ""
+        }
+        return _height
+    }
+    
     
     
     
     init(name: String, pokedexId: Int){
         self._name = name
         self._pokedexId = pokedexId
+        self._pokemanURL = "\(URL_BASE)\(URL_POKEMON)\(self.pokedexId)/"
         
     }
+    
+    
+    func downloadPokemonDetails(completed:@escaping DownloadComplete) {
+        Alamofire.request(_pokemanURL).responseJSON { (response) in
+          if let dict = response.result.value as? Dictionary<String,Any> {
+                if let weight = dict["weight"] as? String {
+                    self._weight = weight
+                }
+            if let height = dict["height"] as? String {
+                self._height = height
+            }
+            if let attack = dict["attack"] as? Int {
+                self._attack = "\(attack)"
+            }
+            if let defense = dict["defense"] as? Int {
+                self._defense = "\(defense)"
+            }
+            print(self._weight)
+            print(self._height)
+            print(self._attack)
+            print(self._defense)
+                
+            }
+            
+            completed()
+        }
+        
+    }
+    
+    
+    
     
 }
