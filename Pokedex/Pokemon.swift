@@ -21,7 +21,7 @@ class Pokemon{
     private var _weight: String!
     private var _attack:String!
     private var _defense:String!
-    private var _evolutionLbl:String!
+    private var _nextEvolutionTxt:String!
     private var _nextEvolutionName: String!
     private var _nextEvolutionID:String!
     private var _nextEvolutionLv:String!
@@ -56,11 +56,11 @@ class Pokemon{
         return _pokedexId
     }
     
-    var evolutionLbl: String {
-        if _evolutionLbl == nil{
-            _evolutionLbl = ""
+    var nextEvolutionTxt: String {
+        if _nextEvolutionTxt == nil{
+            _nextEvolutionTxt = ""
         }
-            return _evolutionLbl
+            return _nextEvolutionTxt
         }
     
     var nextEvolutionID:String {
@@ -70,12 +70,7 @@ class Pokemon{
         return _nextEvolutionID
     }
     
-//    var nextEvolutionID:String {
-//        if _nextEvolutionID == nil {
-//            _nextEvolutionID = ""
-//        }
-//        return _nextEvolutionID
-//    }
+
 
     
     var nextEvolutionLv: String {
@@ -85,8 +80,8 @@ class Pokemon{
         return _nextEvolutionLv
     }
 
-    var evolutionName: String {
-        if _nextEvolutionName == nil{
+    var nextEvolutionName: String {
+        if _nextEvolutionName == nil {
             _nextEvolutionName = ""
         }
         return _nextEvolutionName
@@ -128,7 +123,7 @@ class Pokemon{
         self._name = name
         self._pokedexId = pokedexId
         self._pokemanURL = "\(URL_BASE)\(URL_POKEMON)\(self.pokedexId)/"
-        self._description = description
+        
         
     }
     
@@ -163,7 +158,7 @@ class Pokemon{
                 self._type = ""
             }
             
-            if let descriptionArray = dict["descriptions"] as? [Dictionary<String,Any>] , descriptionArray.count > 0 {
+            if let descriptionArray = dict["descriptions"] as? [Dictionary<String,String>] , descriptionArray.count > 0 {
                 if let url = descriptionArray[0]["resource_uri"] {
                     let descriptionURL = "\(URL_BASE)\(url)"
                     Alamofire.request(descriptionURL).responseJSON(completionHandler:{ (response) in
@@ -185,15 +180,16 @@ class Pokemon{
             }
             
             if let evolutions = dict["evolutions"] as? [Dictionary<String,Any>], evolutions.count > 0 {
-                if let nextEvolutions = evolutions[0]["to"] as? String {
-                    if nextEvolutions.range(of: "mega") == nil{
-                        self._nextEvolutionName = nextEvolutions
+                if let nextEvo = evolutions[0]["to"] as? String {
+                    if nextEvo.range(of: "mega") == nil{
                         
-                        if let uri = evolutions[0]["reources_uri"] as? String{
-                            let newStr = uri.replacingOccurrences(of: "/api/v1/pokemon", with: "")
-                            let nextEvolutionID = newStr.replacingOccurrences(of: "/", with: "")
+                        self._nextEvolutionName = nextEvo
+                        
+                        if let uri = evolutions[0]["resource_uri"] as? String{
+                            let newStr = uri.replacingOccurrences(of: "/api/v1/pokemon/", with: "")
+                            let nextEvoID = newStr.replacingOccurrences(of: "/", with: "")
                             
-                            self._nextEvolutionID = nextEvolutionID
+                            self._nextEvolutionID = nextEvoID
                             
                             if let lvlExist = evolutions[0]["level"]{
                                 if let lvl = lvlExist as? Int{
@@ -207,12 +203,14 @@ class Pokemon{
                         
                     }
                 }
+                print(self._nextEvolutionLv) // not printing
+                
+                print(self._nextEvolutionName)
+                print(self._nextEvolutionID)  // not printing
             }
             
             
-            print(self._nextEvolutionLv)
-            print(self._nextEvolutionID)
-            print(self._nextEvolutionName)
+            
                 
             }
             
@@ -220,8 +218,5 @@ class Pokemon{
         }
         
     }
-    
-    
-    
     
 }

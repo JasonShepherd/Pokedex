@@ -233,7 +233,7 @@
                                             <constraint firstAttribute="width" constant="120" id="KZM-LZ-pg4"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="descriotion abpout fkljhufhsdjkfbhcjre" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="6bf-JD-hDZ">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;&quot;" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="6bf-JD-hDZ">
                                         <rect key="frame" x="193" y="0.0" width="150" height="120"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -435,8 +435,8 @@
                         <outlet property="currentImg" destination="Vxm-D5-ziB" id="5Oe-xo-YRZ"/>
                         <outlet property="decriptionLbl" destination="6bf-JD-hDZ" id="F7r-sn-M8f"/>
                         <outlet property="defenseLbl" destination="rbs-Ui-J05" id="pJ3-8C-Gev"/>
-                        <outlet property="evolutionImg" destination="Z2X-3G-1QH" id="uZX-JD-y3a"/>
-                        <outlet property="evolutionLbl" destination="E3f-M8-C9I" id="CPF-Dv-5Zi"/>
+                        <outlet property="evolutionImg" destination="Z2X-3G-1QH" id="d9K-Ud-3Ln"/>
+                        <outlet property="evolutionLbl" destination="E3f-M8-C9I" id="cTv-Sb-WrS"/>
                         <outlet property="heightLbl" destination="QI8-Ao-Ng6" id="44a-tq-Y7r"/>
                         <outlet property="nameLabel" destination="EJT-JA-HHz" id="JLO-ut-TaO"/>
                         <outlet property="pokedexIDLbl" destination="4Vi-tA-9dj" id="aYf-ef-Q75"/>
