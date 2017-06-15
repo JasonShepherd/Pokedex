@@ -197,16 +197,16 @@ class Pokemon{
                                 }
                                 
                             } else {
-                                self._nextEvolutionLv = ""
+                                self._nextEvolutionLv = "Special"
                             }
                         }
                         
                     }
                 }
-                print(self._nextEvolutionLv) // not printing
+                print(self._nextEvolutionLv)
                 
                 print(self._nextEvolutionName)
-                print(self._nextEvolutionID)  // not printing
+                print(self._nextEvolutionID)
             }
             
             

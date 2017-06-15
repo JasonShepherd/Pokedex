@@ -379,16 +379,19 @@
                                     <constraint firstItem="1FH-y3-cZd" firstAttribute="leading" secondItem="Iqw-Tw-CgU" secondAttribute="leading" constant="184" id="jMi-mA-p5G"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Kpd-BH-vtO">
-                                <rect key="frame" x="16" y="547" width="343" height="120"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Kpd-BH-vtO">
+                                <rect key="frame" x="16" y="571" width="343" height="96"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vxm-D5-ziB">
-                                        <rect key="frame" x="0.0" y="0.0" width="166.5" height="120"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vxm-D5-ziB">
+                                        <rect key="frame" x="0.0" y="0.0" width="166.5" height="96"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z2X-3G-1QH">
-                                        <rect key="frame" x="176.5" y="0.0" width="166.5" height="120"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z2X-3G-1QH">
+                                        <rect key="frame" x="176.5" y="0.0" width="166.5" height="96"/>
                                     </imageView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="96" id="QWL-y3-410"/>
+                                </constraints>
                             </stackView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="m6K-6h-sdN">
                                 <rect key="frame" x="16" y="73" width="343" height="29"/>
